@@ -1,4 +1,4 @@
-export interface Email {
+export type Email = {
   id: string;
   subject: string;
   from: string;
@@ -6,9 +6,9 @@ export interface Email {
   date: string;
   body: string;
   isRead: boolean;
-}
+};
 
-export interface EmailsResponse {
+export type EmailsResponse = {
   emails: Email[];
   total: number;
-}
+};
