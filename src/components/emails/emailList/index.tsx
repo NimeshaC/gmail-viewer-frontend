@@ -21,13 +21,19 @@ export const EmailList = () => {
   if (error) return <div>Error: {error.message}</div>;
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <div className="flex-1 space-y-4">
-        {data?.emails.map((email) => (
-          <EmailItem key={email.id} email={email} />
-        ))}
+    <div className="flex flex-col h-full">
+      <div className="flex-1 overflow-auto space-y-4 px-80">
+        {data?.emails.length === 0 ? (
+          <div className="flex justify-center items-center h-full">
+            No emails found
+          </div>
+        ) : (
+          data?.emails.map((email) => (
+            <EmailItem key={email.id} email={email} />
+          ))
+        )}
       </div>
-      <div className="fixed bottom-20 left-0 right-0 ">
+      <div className="fixed bottom-1 left-0 right-0 bg-white shadow-top">
         <Pagination
           currentPage={page}
           totalPages={Math.ceil((data?.total || 0) / 20)}

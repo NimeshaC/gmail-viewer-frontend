@@ -11,7 +11,7 @@ export const emailService = {
   },
 
   syncEmails: async () => {
-    const response = await api.post("/emails/sync");
+    const response = await api.get("/emails/sync");
     return response.data;
   },
 };
